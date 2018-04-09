@@ -2,12 +2,9 @@
   "name": "lyst-test",
   "version": "1.0.0",
   "description": "Code for the Lyst code test",
-  "main": "src/index.js",
+  "main": "run.js",
   "scripts": {
     "test": "jest"
-  },
-  "bin": {
-    "lyst": "src/bin.js"
   },
   "author": "Ben Holland <hi@benholland.me> (https://benholland.me)",
   "license": "ISC",

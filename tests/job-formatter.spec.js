@@ -1,21 +1,4 @@
-const jobFormatter = require('../src/job-formatter');
-
-
-/**
-
-30 1 /bin/run_me_daily
-45 * /bin/run_me_hourly
-* * /bin/run_me_every_minute
-* 19 /bin/run_me_sixty_times
-
-1:30 tomorrow - /bin/run_me_daily
-16:45 today - /bin/run_me_hourly
-16:10 today - /bin/run_me_every_minute
-19:00 today - /bin/run_me_sixty_times
-
-
- */
-
+const jobFormatter = require('../lib/job-formatter');
 
 describe('When formatting a job', () => {
 
@@ -23,12 +6,12 @@ describe('When formatting a job', () => {
       {
         job: { minute: 30, hour: 1, cmd: '/bin/cmd' },
         currentTime: '16:10',
-        expected: '01:30 tomorrow - /bin/cmd',
+        expected: '1:30 tomorrow - /bin/cmd',
       },
       {
-        job: { minute: '*', hour: 1, cmd: '/bin/cmd' },
+        job: { minute: '*', hour: 2, cmd: '/bin/cmd' },
         currentTime: '16:10',
-        expected: '01:00 tomorrow - /bin/cmd',
+        expected: '2:00 tomorrow - /bin/cmd',
       },
       {
         job: { minute: 45, hour: '*', cmd: '/bin/cmd' },
@@ -53,7 +36,7 @@ describe('When formatting a job', () => {
       {
         job: { minute: 30, hour: '*', cmd: '/bin/cmd' },
         currentTime: '00:00',
-        expected: '00:30 today - /bin/cmd',
+        expected: '0:30 today - /bin/cmd',
       },
       {
         job: { minute: '*', hour: '*', cmd: '/bin/cmd' },

@@ -1,5 +1,5 @@
 const fs = require('fs');
-const parseConfig = require('../src/parse-config');
+const parseConfig = require('../lib/parse-config');
 
 const TEST_CONFIG = fs.readFileSync(`${__dirname}/test-config.txt`, 'utf8');
 
