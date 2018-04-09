@@ -1,7 +1,10 @@
 const args = require('yargs').argv;
 const getStdin = require('get-stdin');
+const parseConfig = require('./parse-config');
 
 getStdin().then(str => {
-  console.log(str);
+  const config = parseConfig(str);
+
+  console.log('config', config);
 });
 
